@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>好伙伴们 | Hexo</title>
+  <title>一些实用的js方法 | Hexo</title>
   <meta name="author" content="John Doe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,17 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="javascript" />
   
-  <meta name="description" content="好伙伴们在哪里~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="好伙伴们">
-<meta property="og:url" content="http://example.com/friends/index.html">
+  <meta name="description" content="实用方法运算符 无先后顺序  1.  a ?? b12a || b &#x2F;&#x2F; 当 a 为 假(包含&amp;#x27;&amp;#x27;,0等)，返回 ba ?? b &#x2F;&#x2F; 仅当 a 等于 null 或 undefined 返回 b    2. 逻辑且赋值 x &amp;&amp;&#x3D; y仅当 x 为真时赋值 123456789let a &#x3D; 1;let b &#x3D; 0;a &amp;&amp;&#x3D; 2;console.l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些实用的js方法">
+<meta property="og:url" content="http://example.com/2021/10/22/JavaScript/%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="好伙伴们在哪里~">
+<meta property="og:description" content="实用方法运算符 无先后顺序  1.  a ?? b12a || b &#x2F;&#x2F; 当 a 为 假(包含&amp;#x27;&amp;#x27;,0等)，返回 ba ?? b &#x2F;&#x2F; 仅当 a 等于 null 或 undefined 返回 b    2. 逻辑且赋值 x &amp;&amp;&#x3D; y仅当 x 为真时赋值 123456789let a &#x3D; 1;let b &#x3D; 0;a &amp;&amp;&#x3D; 2;console.l">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/null">
+<meta property="article:published_time" content="2021-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-24T11:37:19.391Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/null">
 <meta name="twitter:site" content="@null">
@@ -158,33 +161,167 @@
 
             <article>
     <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">一些实用的js方法</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2021-10-22</li>
+                <li><i class="fa fa-user"></i> 作者 John Doe</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        1232
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
         <div class="kratos-post-content">
-            <h2 class="title-h2 text-center">好伙伴们</h2>
-            <div class="linkpage">
-    <ul id="friendsList"></ul>
-</div>
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                本文最后编辑于 <time datetime="1643024239391"></time> 前，其中的内容可能需要更新。
+            </div>
+            
+            <hr />
+            <h1 id="实用方法"><a href="#实用方法" class="headerlink" title="实用方法"></a>实用方法</h1><h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><blockquote>
+<p>无先后顺序</p>
+</blockquote>
+<h3 id="1-a-b"><a href="#1-a-b" class="headerlink" title="1.  a ?? b"></a>1.  a ?? b</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a || b <span class="comment">// 当 a 为 假(包含&#x27;&#x27;,0等)，返回 b</span></span><br><span class="line">a ?? b <span class="comment">// 仅当 a 等于 null 或 undefined 返回 b</span></span><br></pre></td></tr></table></figure>
 
-<script type="text/javascript">
-{
-    const flist = JSON.parse(`[{"name":"猫猫①号","bio":"喵~","avatar":"../images/avatar.webp","link":"#"},{"name":"猫猫②号","bio":"喵喵~","avatar":"../images/avatar.webp","link":"#"},{"name":"猫猫⑨号","bio":"咪啪~","avatar":"../images/avatar.webp","link":"#"}]`);
-    let friendNodes = '';
-    while (flist.length > 0) {
-        const rndNum = Math.floor(Math.random()*flist.length);
-        friendNodes += `<li><a target="_blank" href="${flist[rndNum].link}"><img src="${flist[rndNum].avatar || '<%- url_cdn("images/avatar.webp") %>'}"><h4>${flist[rndNum].name}</h4><p>${flist[rndNum].bio || ''}</p></a></li>`;
-        flist.splice(rndNum, 1);
-    }
-    document.getElementById("friendsList").innerHTML = friendNodes;
-}
-</script>
+
+
+<h3 id="2-逻辑且赋值-x-amp-amp-y"><a href="#2-逻辑且赋值-x-amp-amp-y" class="headerlink" title="2. 逻辑且赋值 x &amp;&amp;= y"></a>2. 逻辑且赋值 x &amp;&amp;= y</h3><p>仅当 x 为真时赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">a &amp;&amp;= <span class="number">2</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="comment">// expected output: 2</span></span><br><span class="line"></span><br><span class="line">b &amp;&amp;= <span class="number">2</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-逻辑空赋值-x-y"><a href="#3-逻辑空赋值-x-y" class="headerlink" title="3.  逻辑空赋值  x ??= y"></a>3.  逻辑空赋值  x ??= y</h3><p>仅当 x 为 null 或 undefined 赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">duration</span>: <span class="number">50</span> &#125;;</span><br><span class="line"></span><br><span class="line">a.<span class="property">duration</span> ??= <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">duration</span>);</span><br><span class="line"><span class="comment">// expected output: 50</span></span><br><span class="line"></span><br><span class="line">a.<span class="property">speed</span> ??= <span class="number">25</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">speed</span>);</span><br><span class="line"><span class="comment">// expected output: 25</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-逻辑假赋值-x-y"><a href="#4-逻辑假赋值-x-y" class="headerlink" title="4. 逻辑假赋值 x ||= y"></a>4. 逻辑假赋值 x ||= y</h3><p>仅当x是假的时候赋值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">duration</span>: <span class="number">50</span>, <span class="attr">title</span>: <span class="string">&#x27;&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line">a.<span class="property">duration</span> ||= <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">duration</span>);</span><br><span class="line"><span class="comment">// expected output: 50</span></span><br><span class="line"></span><br><span class="line">a.<span class="property">title</span> ||= <span class="string">&#x27;title is empty.&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">title</span>);</span><br><span class="line"><span class="comment">// expected output: &quot;title is empty&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-可选链操作符"><a href="#5-可选链操作符" class="headerlink" title="5.可选链操作符 ?."></a>5.可选链操作符 ?.</h3><p><strong>可选链</strong>操作符( <strong><code>?.</code></strong> )允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。<code>?.</code> 操作符的功能类似于 <code>.</code> 链式操作符，不同之处在于，在引用为空(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Nullish">nullish</a> ) (<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null"><code>null</code></a> 或者 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a>) 的情况下不会引起错误，该表达式短路返回值是 <code>undefined</code>。与函数调用一起使用时，如果给定的函数不存在，则返回 <code>undefined</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> adventurer = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Alice&#x27;</span>,</span><br><span class="line">  <span class="attr">cat</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Dinah&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dogName = adventurer.<span class="property">dog</span>?.<span class="property">name</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dogName);</span><br><span class="line"><span class="comment">// expected output: undefined</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(adventurer.<span class="property">someNonExistentMethod</span>?.());</span><br><span class="line"><span class="comment">// expected output: undefined</span></span><br></pre></td></tr></table></figure>
+
+
         </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
         <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2021/10/22/JavaScript/%E8%BF%90%E7%AE%97%E7%AC%A6/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2021/10/22/JavaScript/%E8%BF%90%E7%AE%97%E7%AC%A6/";
+            const title         = "「一些实用的js方法」";
+            const excerpt       = `实用方法运算符
+无先后顺序
+
+1.  a ?? b12a || b // 当 a 为 假(包含&#x27;&#x27;,0等)，返回 ba ?? b // 仅当 a 等于 null 或 undefined 返回 b
+
+
+
+2. 逻辑且...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
             <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
+                </div>
                 <div class="pull-date">
-                <span>最后编辑：2021-01-18</span>
+                <span>最后编辑：2022-01-24</span>
                 </div>
             </div>
         </footer>
     </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" LeetCode 15. 三数之和" href="/2021/10/10/arithmetic/15.三数之和/">&lt; 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
     
 </article>
 
@@ -200,8 +337,6 @@
 <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
     <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
     
-        <div class="sticky-area">
-    
     
                 <aside id="krw-about" class="widget widget-kratos-about clearfix">
     <div class="photo-background"></div>
@@ -215,6 +350,8 @@
     </div>
 </aside>
             
+                    <div class="sticky-area">
+                
                 
   <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
