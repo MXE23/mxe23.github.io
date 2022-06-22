@@ -17,7 +17,7 @@
   
   <meta property="og:type" content="website">
 <meta property="og:title" content="MXE23 blog">
-<meta property="og:url" content="http://example.com/tags/SQL/index.html">
+<meta property="og:url" content="http://example.com/categories/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="MXE23 blog">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/avatar.png">
@@ -138,26 +138,21 @@
             <div class="kratos-entry-border-new clearfix">
                 
                 <div class="kratos-entry-thumb-new">
-                    <a href="/2021/04/29/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7%20copy/">
+                    <a href="/2022/06/22/sourcecode/underscore01/">
                         
-                            <img class="kratos-entry-thumb-new-img">
+                            <img class="kratos-entry-thumb-new-img" src="https://uploadstatic.mihoyo.com/contentweb/20210920/2021092017230696219.png">
                         
                     </a>
                 </div>
                 <div class="kratos-post-inner-new">
                     <header class="kratos-entry-header-new">
-                            <a class="label-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
-                        <h2 class="kratos-entry-title-new"><a href="/2021/04/29/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7%20copy/">MySQL学习笔记（更新中）</a>
+                            <a class="label-link" href="/categories/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">源码解析</a>
+                        <h2 class="kratos-entry-title-new"><a href="/2022/06/22/sourcecode/underscore01/">underscore源码解析，_each</a>
                     </header>
                     <div class="kratos-entry-content-new">
                         <p>
                             
-                                DDL 数据库定义语言
-DML 数据库操作语言
-DQL 数据库查询语言
-DCL 数据库控制语言
-SQL语句中的关键字不区分大小写
-操作数据库1.创建数据库12create database 数据库名create database if...
+                                each_.each(list, iteratee, [context])Alias: forEach遍历 list 中的所有元素，按顺序用每个元素当做参数调用 iteratee 函数。如果传递了 context 参数，则把 iter...
                             
                         </p>
                     </div>
@@ -166,12 +161,12 @@ SQL语句中的关键字不区分大小写
                     <span class="pull-left">
                         <a>
                             <i class="fa fa-calendar"></i>
-                            2021-04-29
+                            2022-06-22
                         </a>
                         <a>
                             
                                 <i class="fa fa-tags"></i>
-                                <a class="tag-none-link" href="/tags/MySQL/" rel="tag">MySQL</a>, <a class="tag-none-link" href="/tags/SQL/" rel="tag">SQL</a>
+                                <a class="tag-none-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a>
                             
                         </a>
                         
@@ -184,126 +179,7 @@ SQL语句中的关键字不区分大小写
                         
                     </span>
                     <span class="pull-right">
-                        <a class="read-more" href="/2021/04/29/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7%20copy/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
-                    </span>
-                </footer>
-            </div>
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry clearfix">
-            <div class="kratos-entry-border-new clearfix">
-                
-                <div class="kratos-entry-thumb-new">
-                    <a href="/2021/04/19/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7/">
-                        
-                            <img class="kratos-entry-thumb-new-img">
-                        
-                    </a>
-                </div>
-                <div class="kratos-post-inner-new">
-                    <header class="kratos-entry-header-new">
-                            <a class="label-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
-                        <h2 class="kratos-entry-title-new"><a href="/2021/04/19/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7/">获取数据库表的字段及属性</a>
-                    </header>
-                    <div class="kratos-entry-content-new">
-                        <p>
-                            
-                                
-在公司写的许多代码都有一些重复和繁琐的，通过获取数据库表的一些配置，再写一套复用逻辑，就可以快速生成代码
-
-获取数据库表的字段，字段属性，以及说明信息
-12select a.column_name,a.data_type,b.val...
-                            
-                        </p>
-                    </div>
-                </div>
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <a>
-                            <i class="fa fa-calendar"></i>
-                            2021-04-19
-                        </a>
-                        <a>
-                            
-                                <i class="fa fa-tags"></i>
-                                <a class="tag-none-link" href="/tags/SQL/" rel="tag">SQL</a>, <a class="tag-none-link" href="/tags/SQL-Server/" rel="tag">SQL Server</a>
-                            
-                        </a>
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    <span class="pull-right">
-                        <a class="read-more" href="/2021/04/19/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
-                    </span>
-                </footer>
-            </div>
-        </article>
-    
-
-    
-    
-        <article class="kratos-hentry clearfix">
-            <div class="kratos-entry-border-new clearfix">
-                
-                <div class="kratos-entry-thumb-new">
-                    <a href="/2021/04/19/Share/%E7%BD%91%E7%AB%99%E5%88%86%E4%BA%AB/">
-                        
-                            <img class="kratos-entry-thumb-new-img" src="https://uploadstatic.mihoyo.com/contentweb/20211103/2021110322064026502.png">
-                        
-                    </a>
-                </div>
-                <div class="kratos-post-inner-new">
-                    <header class="kratos-entry-header-new">
-                            <a class="label-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
-                        <h2 class="kratos-entry-title-new"><a href="/2021/04/19/Share/%E7%BD%91%E7%AB%99%E5%88%86%E4%BA%AB/">网站分享2021-04-19</a>
-                    </header>
-                    <div class="kratos-entry-content-new">
-                        <p>
-                            
-                                
-一些个人觉得挺有意思的网站，排名不分先后
-
-独立开发者https://w2solo.com/
-不死鸟分享https://iao.su/
-只读http://www.rdonly.com/
-书签地球
-一个书签分享网站，说不定会有意外收获...
-                            
-                        </p>
-                    </div>
-                </div>
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <a>
-                            <i class="fa fa-calendar"></i>
-                            2021-04-19
-                        </a>
-                        <a>
-                            
-                                <i class="fa fa-tags"></i>
-                                <a class="tag-none-link" href="/tags/SQL/" rel="tag">SQL</a>, <a class="tag-none-link" href="/tags/SQL-Server/" rel="tag">SQL Server</a>
-                            
-                        </a>
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    <span class="pull-right">
-                        <a class="read-more" href="/2021/04/19/Share/%E7%BD%91%E7%AB%99%E5%88%86%E4%BA%AB/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
+                        <a class="read-more" href="/2022/06/22/sourcecode/underscore01/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
                     </span>
                 </footer>
             </div>
