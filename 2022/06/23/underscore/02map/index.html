@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="/images/avatar.png">
-  <title>关于数据处理的一些总结 | MXE23 blog</title>
+  <title>underscore源码解析，_map | MXE23 blog</title>
   <meta name="author" content="MXE23" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="javascript" />
+    <meta name="keywords" content="源码解析" />
   
-  <meta name="description" content="1. for循环数组一般在用 for循环 遍历数组的时候会读取数组的 length 属性用于极限值的处理 1234const arr &#x3D; [1,2,3,4,5]for(let i &#x3D; 0; i &lt; arr.length; i++)&amp;#123;    console.log(arr[i])&amp;#125;  但事实上，每次循环中，都会重新读取数组的 length 属性，在数据大且复杂的情况下，会有">
+  <meta name="description" content="map_.map(list, iteratee, [context])Alias: collect通过对 list 里的每个元素调用转换函数(iteratee 迭代器)生成一个与之相对应的数组。iteratee 传递三个参数：value，然后是迭代 index(或 key 注：如果 list 是个 JavaScript 对象是，这个参数就是 key)，最后一个是引用指向整个 list。 12345">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于数据处理的一些总结">
-<meta property="og:url" content="http://example.com/2021/08/04/JavaScript/%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="underscore源码解析，_map">
+<meta property="og:url" content="http://example.com/2022/06/23/underscore/02map/index.html">
 <meta property="og:site_name" content="MXE23 blog">
-<meta property="og:description" content="1. for循环数组一般在用 for循环 遍历数组的时候会读取数组的 length 属性用于极限值的处理 1234const arr &#x3D; [1,2,3,4,5]for(let i &#x3D; 0; i &lt; arr.length; i++)&amp;#123;    console.log(arr[i])&amp;#125;  但事实上，每次循环中，都会重新读取数组的 length 属性，在数据大且复杂的情况下，会有">
+<meta property="og:description" content="map_.map(list, iteratee, [context])Alias: collect通过对 list 里的每个元素调用转换函数(iteratee 迭代器)生成一个与之相对应的数组。iteratee 传递三个参数：value，然后是迭代 index(或 key 注：如果 list 是个 JavaScript 对象是，这个参数就是 key)，最后一个是引用指向整个 list。 12345">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/08/04/JavaScript/%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/https:/uploadstatic.mihoyo.com/contentweb/20191115/2019111515510150417.jpg">
-<meta property="article:published_time" content="2021-08-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-17T15:13:50.217Z">
+<meta property="og:image" content="http://example.com/2022/06/23/underscore/02map/https:/webstatic.mihoyo.com/upload/contentweb/2022/04/20/aa7fdd276ad848d02f28f7f86264d386_4205942631348108574.jpg">
+<meta property="article:published_time" content="2022-06-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-23T15:26:34.328Z">
 <meta property="article:author" content="MXE23">
-<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="源码解析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/08/04/JavaScript/%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/https:/uploadstatic.mihoyo.com/contentweb/20191115/2019111515510150417.jpg">
+<meta name="twitter:image" content="http://example.com/2022/06/23/underscore/02map/https:/webstatic.mihoyo.com/upload/contentweb/2022/04/20/aa7fdd276ad848d02f28f7f86264d386_4205942631348108574.jpg">
 <meta name="twitter:site" content="@null">
   
   <!-- 站点验证相关 -->
@@ -140,17 +140,17 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center">关于数据处理的一些总结</h1>
+                <h1 class="kratos-entry-title text-center">underscore源码解析，_map</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><i class="fa fa-calendar"></i> 2021-08-04</li>
+                <li><i class="fa fa-calendar"></i> 2022-06-23</li>
                 <li><i class="fa fa-user"></i> 作者 MXE23</li>
                 <li>
                     <i class="fa fa-edit"></i> 
                     
                     
-                        1377
+                        1053
                     
                     字
                 </li>
@@ -159,36 +159,18 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1645110830217"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1655997994328"></time> 前，其中的内容可能需要更新。
             </div>
             
             <hr />
-            <h2 id="1-for循环数组"><a href="#1-for循环数组" class="headerlink" title="1. for循环数组"></a>1. for循环数组</h2><p>一般在用 for循环 遍历数组的时候会读取数组的 <code>length</code> 属性用于极限值的处理</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但事实上，每次循环中，都会重新读取数组的 <code>length</code> 属性，在数据大且复杂的情况下，会有一些性能损耗的</p>
-<p>可以采取以下的写法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = arr.<span class="property">length</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> length = arr.<span class="property">length</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="map"><a href="#map" class="headerlink" title="map"></a>map</h1><p><code>_.map(list, iteratee, [context])</code>Alias: <strong>collect</strong><br>通过对 <strong>list</strong> 里的每个元素调用转换函数(<a target="_blank" rel="noopener" href="https://www.underscorejs.com.cn/map#iteratee"><strong>iteratee</strong> </a>迭代器)生成一个与之相对应的数组。<code>iteratee </code>传递三个参数：<code>value</code>，然后是迭代 <code>index</code>(或 <code>key</code> 注：如果 <strong>list</strong> 是个 JavaScript 对象是，这个参数就是<code> key</code>)，最后一个是引用指向整个<code> list</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_.<span class="title function_">map</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="keyword">function</span>(<span class="params">num</span>)&#123; <span class="keyword">return</span> num * <span class="number">3</span>; &#125;);</span><br><span class="line">=&gt; [<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>]</span><br><span class="line">_.<span class="title function_">map</span>(&#123;<span class="attr">one</span>: <span class="number">1</span>, <span class="attr">two</span>: <span class="number">2</span>, <span class="attr">three</span>: <span class="number">3</span>&#125;, <span class="keyword">function</span>(<span class="params">num, key</span>)&#123; <span class="keyword">return</span> num * <span class="number">3</span>; &#125;);</span><br><span class="line">=&gt; [<span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>]</span><br><span class="line">_.<span class="title function_">map</span>([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]], _.<span class="property">first</span>);</span><br><span class="line">=&gt; [<span class="number">1</span>, <span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="2-数组的map方法"><a href="#2-数组的map方法" class="headerlink" title="2. 数组的map方法"></a>2. 数组的map方法</h2><p>原生数组提供了两种遍历的方法，分别是 <code>forEach</code> 和 <code>map</code></p>
-<p>其中 <code>map</code> 可以访问数组的每一项，并返回一个值来作为方法返回数组的这一项</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例如</span></span><br><span class="line"><span class="keyword">const</span> users = [&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">2</span>,<span class="attr">name</span>:<span class="string">&#x27;李四&#x27;</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">&#x27;王五&#x27;</span>&#125;]</span><br><span class="line"><span class="comment">// 可以通过map快速得到所有用户的姓名</span></span><br><span class="line"><span class="keyword">const</span> names = users.<span class="title function_">map</span>(<span class="function"><span class="params">user</span>=&gt;</span>user.<span class="property">name</span>) <span class="comment">// [&#x27;张三&#x27;,&#x27;李四&#x27;,&#x27;王五&#x27;]</span></span><br><span class="line"><span class="comment">// 这里采用了箭头函数的简写方式</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cb <span class="keyword">from</span> <span class="string">&#x27;./_cb.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> isArrayLike <span class="keyword">from</span> <span class="string">&#x27;./_isArrayLike.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> keys <span class="keyword">from</span> <span class="string">&#x27;./keys.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 整体实现思路与 each 差不多，只不过会把每次迭代的结果作为新数组的项返回出去.</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">map</span>(<span class="params">obj, iteratee, context</span>) &#123;</span><br><span class="line">  iteratee = <span class="title function_">cb</span>(iteratee, context);</span><br><span class="line">  <span class="keyword">var</span> _keys = !<span class="title function_">isArrayLike</span>(obj) &amp;&amp; <span class="title function_">keys</span>(obj),</span><br><span class="line">      length = (_keys || obj).<span class="property">length</span>,</span><br><span class="line">      results = <span class="title class_">Array</span>(length);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">0</span>; index &lt; length; index++) &#123;</span><br><span class="line">    <span class="keyword">var</span> currentKey = _keys ? _keys[index] : index;</span><br><span class="line">    results[index] = <span class="title function_">iteratee</span>(obj[currentKey], currentKey, obj);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> results;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-
-<p><strong>在做曲线中一个比较常见的应用场景</strong></p>
-<p>给定一个数组，原数组作为图表的其中一条数据，另一条数据为数组的累加值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line"><span class="comment">// 仍然采用的简写的方式</span></span><br><span class="line"><span class="keyword">const</span> totalNum = arr.<span class="title function_">map</span>(<span class="function">(<span class="params">v,i</span>)=&gt;</span>arr.<span class="title function_">slice</span>(<span class="number">0</span>,i+<span class="number">1</span>).<span class="title function_">reduce</span>(<span class="function">(<span class="params">a,b</span>)=&gt;</span>a+b,<span class="number">0</span>)) <span class="comment">//[1, 3, 6, 10, 15, 21]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">const totalNum = arr.map((value,index)=&gt;&#123;</span></span><br><span class="line"><span class="comment">	// 访问起始项到当前项数据之和，且不影响原数组</span></span><br><span class="line"><span class="comment">	return arr.slice(0,i+1).reduce((a,b)=&gt;&#123;</span></span><br><span class="line"><span class="comment">		return a + b</span></span><br><span class="line"><span class="comment">	&#125;,0)</span></span><br><span class="line"><span class="comment">	// reduce第二个参数是当数组为空数组时，默认的累加数据为0</span></span><br><span class="line"><span class="comment">&#125;)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="3-简易的数组去重"><a href="#3-简易的数组去重" class="headerlink" title="3. 简易的数组去重"></a>3. 简易的数组去重</h2><p>数组去重的方法有很多，一般场景都会有封装的方法，在编写一些简单逻辑的时候可以采用 <code>ES6</code> 的 <code>Set</code> 的结构实现去重</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">noRepeat</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="keyword">new</span> <span class="title class_">Set</span>(arr))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 也可以使用拓展运算符，但这在typescript环境下是不合法的语法</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">noRepeat</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -243,7 +225,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/08/04/JavaScript/%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/",
+                text: "http://example.com/2022/06/23/underscore/02map/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -255,10 +237,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/08/04/JavaScript/%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/";
-            const title         = "「关于数据处理的一些总结」";
-            const excerpt       = `1. for循环数组一般在用 for循环 遍历数组的时候会读取数组的 length 属性用于极限值的处理
-1234const arr = [1,2,3,4,5]for(let i = 0; i &lt; arr.length; i++...`;
+            const hostUrl       = "http://example.com/2022/06/23/underscore/02map/";
+            const title         = "「underscore源码解析，_map」";
+            const excerpt       = `map_.map(list, iteratee, [context])Alias: collect通过对 list 里的每个元素调用转换函数(iteratee 迭代器)生成一个与之相对应的数组。iteratee 传递三个参数：valu...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -277,10 +258,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
+                    <a class="tag-none-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-02-17</span>
+                <span>最后编辑：2022-06-23</span>
                 </div>
             </div>
         </footer>
@@ -289,12 +270,12 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" vue,react 使用CDN引入 TodoList" href="/2021/07/22/JavaScript/TodoList/">&lt; 上一篇</a>
+                <a title=" underscore源码解析，_each" href="/2022/06/22/underscore/01each/">&lt; 上一篇</a>
             </div>
             
             
             <div class="nav-next clearfix">
-                <a title=" LeetCode 2. 两数相加" href="/2021/08/19/arithmetic/2.两数相加/">下一篇 &gt;</a>
+                <a title=" underscore源码解析，reduce" href="/2022/06/23/underscore/03reduce/">下一篇 &gt;</a>
             </div>
             
         </nav>
