@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/06/23/underscore/03reduce/https:/webstatic.mihoyo.com/upload/contentweb/2022/06/01/307e97670bccb52217793c37875db3b6_4575220996410919312.png">
 <meta property="article:published_time" content="2022-06-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-23T15:26:13.920Z">
+<meta property="article:modified_time" content="2022-06-30T14:09:38.317Z">
 <meta property="article:author" content="MXE23">
 <meta property="article:tag" content="源码解析">
 <meta name="twitter:card" content="summary">
@@ -150,7 +150,7 @@
                     <i class="fa fa-edit"></i> 
                     
                     
-                        ~2.10K
+                        ~2.40K
                     
                     字
                 </li>
@@ -159,7 +159,7 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1655997973920"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1656598178317"></time> 前，其中的内容可能需要更新。
             </div>
             
             <hr />
@@ -178,6 +178,10 @@
 
 
 <h3 id="optimizeCb-js"><a href="#optimizeCb-js" class="headerlink" title="_optimizeCb.js"></a>_optimizeCb.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里主要用到了 argCount = 4 的情况</span></span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>: <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">accumulator, value, index, collection</span>) &#123;</span><br><span class="line">    <span class="comment">// 改变 this 指向，依次传入，累计计算结果，当前值，当前索引，迭代的集合</span></span><br><span class="line">    <span class="keyword">return</span> func.<span class="title function_">call</span>(context, accumulator, value, index, collection);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数组reduce方法实现"><a href="#数组reduce方法实现" class="headerlink" title="数组reduce方法实现"></a>数组reduce方法实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">reduce</span>(<span class="params">arr,fn,initVal</span>) &#123;   </span><br><span class="line">    <span class="keyword">let</span> initIndex</span><br><span class="line">    <span class="keyword">let</span> acc</span><br><span class="line">    initIndex = <span class="variable language_">arguments</span>.<span class="property">length</span> === <span class="number">3</span> ? <span class="number">1</span> : <span class="number">0</span></span><br><span class="line">    acc = <span class="variable language_">arguments</span>.<span class="property">length</span> === <span class="number">3</span> ? initVal : arr[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> initIndex; i &lt; arr.<span class="property">length</span>; i++ ) &#123;</span><br><span class="line">        acc = <span class="title function_">fn</span>(acc, arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> acc</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -272,7 +276,7 @@
                     <a class="tag-none-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-06-23</span>
+                <span>最后编辑：2022-06-30</span>
                 </div>
             </div>
         </footer>
