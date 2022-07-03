@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="/images/avatar.png">
-  <title>LeetCode 1. 两数之和 | MXE23 blog</title>
+  <title>underscore源码解析，find | MXE23 blog</title>
   <meta name="author" content="MXE23" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,22 +13,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="javascript" />
+    <meta name="keywords" content="源码解析" />
   
-  <meta name="description" content="给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 1234&#x2F;*解题思路：遍历整个数组，每遍历到一个数，就将他与目标值的差值以及索引缓存起来，直到后续数中存在有差值集合中的任意一项，返回结果*">
+  <meta name="description" content="find_.find(list, predicate, [context])Alias: detect在 list 中逐项查找，返回第一个通过 predicate 迭代函数真值检测的元素值，如果没有元素通过检测则返回 undefined。 如果找到匹配的元素，函数将立即返回，不会遍历整个 list。predicate 通过 iteratee 进行转换，以简化速记语法。 12var even &#x3D; _">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 1. 两数之和">
-<meta property="og:url" content="http://example.com/2021/08/19/arithmetic/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/index.html">
+<meta property="og:title" content="underscore源码解析，find">
+<meta property="og:url" content="http://example.com/2022/07/03/underscore/04find/index.html">
 <meta property="og:site_name" content="MXE23 blog">
-<meta property="og:description" content="给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 1234&#x2F;*解题思路：遍历整个数组，每遍历到一个数，就将他与目标值的差值以及索引缓存起来，直到后续数中存在有差值集合中的任意一项，返回结果*">
+<meta property="og:description" content="find_.find(list, predicate, [context])Alias: detect在 list 中逐项查找，返回第一个通过 predicate 迭代函数真值检测的元素值，如果没有元素通过检测则返回 undefined。 如果找到匹配的元素，函数将立即返回，不会遍历整个 list。predicate 通过 iteratee 进行转换，以简化速记语法。 12var even &#x3D; _">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/08/19/arithmetic/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/https:/uploadstatic.mihoyo.com/contentweb/20211023/2021102319505169569.png">
-<meta property="article:published_time" content="2021-08-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-17T15:11:26.805Z">
+<meta property="og:image" content="http://example.com/2022/07/03/underscore/04find/http:/user-assets.sxlcdn.com/images/64283/Fjp-tXis7Wjd8-kaC8ay9tusjxIJ.png?imageMogr2/strip/auto-orient/thumbnail/1920x9000%3E/quality/90!/format/png">
+<meta property="article:published_time" content="2022-07-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-03T08:15:17.561Z">
 <meta property="article:author" content="MXE23">
-<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="源码解析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/08/19/arithmetic/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/https:/uploadstatic.mihoyo.com/contentweb/20211023/2021102319505169569.png">
+<meta name="twitter:image" content="http://example.com/2022/07/03/underscore/04find/http:/user-assets.sxlcdn.com/images/64283/Fjp-tXis7Wjd8-kaC8ay9tusjxIJ.png?imageMogr2/strip/auto-orient/thumbnail/1920x9000%3E/quality/90!/format/png">
 <meta name="twitter:site" content="@null">
   
   <!-- 站点验证相关 -->
@@ -140,17 +140,17 @@
     <div class="kratos-hentry kratos-post-inner clearfix">
         <header class="kratos-entry-header">
             
-                <h1 class="kratos-entry-title text-center">LeetCode 1. 两数之和</h1>
+                <h1 class="kratos-entry-title text-center">underscore源码解析，find</h1>
             
             
             <ul class="kratos-post-meta text-center">
-                <li><i class="fa fa-calendar"></i> 2021-08-19</li>
+                <li><i class="fa fa-calendar"></i> 2022-07-03</li>
                 <li><i class="fa fa-user"></i> 作者 MXE23</li>
                 <li>
                     <i class="fa fa-edit"></i> 
                     
                     
-                        874
+                        ~2.24K
                     
                     字
                 </li>
@@ -159,16 +159,38 @@
         </header>
         <div class="kratos-post-content">
             <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                本文最后编辑于 <time datetime="1645110686805"></time> 前，其中的内容可能需要更新。
+                本文最后编辑于 <time datetime="1656836117561"></time> 前，其中的内容可能需要更新。
             </div>
             
             <hr />
-            <p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p>
-<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
-<p>你可以按任意顺序返回答案。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">解题思路：遍历整个数组，每遍历到一个数，就将他与目标值的差值以及索引缓存起来，</span></span><br><span class="line"><span class="comment">直到后续数中存在有差值集合中的任意一项，返回结果</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+            <h1 id="find"><a href="#find" class="headerlink" title="find"></a>find</h1><p><code>_.find(list, predicate, [context])</code>Alias: <strong>detect</strong><br>在 <strong>list</strong> 中逐项查找，返回第一个通过 <strong>predicate</strong> 迭代函数真值检测的元素值，如果没有元素通过检测则返回 <code>undefined</code>。 如果找到匹配的元素，函数将立即返回，不会遍历整个 list。<strong>predicate</strong> 通过 <a target="_blank" rel="noopener" href="https://www.underscorejs.com.cn/find#iteratee"><strong>iteratee</strong></a> 进行转换，以简化速记语法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> even = _.<span class="title function_">find</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="keyword">function</span>(<span class="params">num</span>)&#123; <span class="keyword">return</span> num % <span class="number">2</span> == <span class="number">0</span>; &#125;);</span><br><span class="line">=&gt; <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="keyword">function</span> (<span class="params">nums,target</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> length = nums.<span class="property">length</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length;i++)&#123;</span><br><span class="line">        <span class="keyword">const</span> num = nums[i]</span><br><span class="line">        <span class="keyword">if</span>(num <span class="keyword">in</span> obj)&#123;</span><br><span class="line">            <span class="keyword">return</span> [obj[num],i]</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            obj[target - num] = i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者可以使用map</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="keyword">function</span> (<span class="params">nums,target</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">    <span class="keyword">const</span> length = nums.<span class="property">length</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(map.<span class="title function_">has</span>(nums[i]))&#123;</span><br><span class="line">            <span class="keyword">return</span> [map.<span class="title function_">get</span>(nums[i]),i]</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            map.<span class="title function_">set</span>(target-nums[i],i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="find-js"><a href="#find-js" class="headerlink" title="find.js"></a>find.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> isArrayLike <span class="keyword">from</span> <span class="string">&#x27;./_isArrayLike.js&#x27;</span>;</span><br><span class="line"><span class="comment">// 是否类数组，在01 each 中有展示</span></span><br><span class="line"><span class="keyword">import</span> findIndex <span class="keyword">from</span> <span class="string">&#x27;./findIndex.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> findKey <span class="keyword">from</span> <span class="string">&#x27;./findKey.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回第一个匹配的结果</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">find</span>(<span class="params">obj, predicate, context</span>) &#123;</span><br><span class="line">  <span class="comment">// 是否是类数组，是数组查索引（下标），不是查键名</span></span><br><span class="line">  <span class="keyword">var</span> keyFinder = <span class="title function_">isArrayLike</span>(obj) ? findIndex : findKey;</span><br><span class="line">  <span class="comment">// 查询的结果</span></span><br><span class="line">  <span class="keyword">var</span> key = <span class="title function_">keyFinder</span>(obj, predicate, context);</span><br><span class="line">  <span class="keyword">if</span> (key !== <span class="keyword">void</span> <span class="number">0</span> &amp;&amp; key !== -<span class="number">1</span>) <span class="keyword">return</span> obj[key];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="findIndex-js"><a href="#findIndex-js" class="headerlink" title="findIndex.js"></a>findIndex.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createPredicateIndexFinder <span class="keyword">from</span> <span class="string">&#x27;./_createPredicateIndexFinder.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回判断结果为真的第一个索引</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">createPredicateIndexFinder</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="createPredicateIndexFinder-js"><a href="#createPredicateIndexFinder-js" class="headerlink" title="_createPredicateIndexFinder.js"></a>_createPredicateIndexFinder.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cb <span class="keyword">from</span> <span class="string">&#x27;./_cb.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> getLength <span class="keyword">from</span> <span class="string">&#x27;./_getLength.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据传入的方向，生成 findIndex 和 findLastIndex（从前面开始查，还是后面开始查）</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">createPredicateIndexFinder</span>(<span class="params">dir</span>) &#123;</span><br><span class="line">    <span class="comment">// 传入数组，条件函数，上下文</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">array, predicate, context</span>) &#123;</span><br><span class="line">         <span class="comment">// 把条件函数的 this 指向当前上下文</span></span><br><span class="line">        predicate = <span class="title function_">cb</span>(predicate, context);</span><br><span class="line">        <span class="keyword">var</span> length = <span class="title function_">getLength</span>(array);</span><br><span class="line">        <span class="comment">// 起始索引</span></span><br><span class="line">        <span class="keyword">var</span> index = dir &gt; <span class="number">0</span> ? <span class="number">0</span> : length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; index &gt;= <span class="number">0</span> &amp;&amp; index &lt; length; index += dir) &#123;</span><br><span class="line">            <span class="comment">// 执行条件函数，传入数组的当前项，索引，以及数组本身</span></span><br><span class="line">            <span class="comment">// 如果结果为真，返回当前索引</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_">predicate</span>(array[index], index, array)) <span class="keyword">return</span> index;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 没有符合条件的返回 -1</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="findKey-js"><a href="#findKey-js" class="headerlink" title="findKey.js"></a>findKey.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cb <span class="keyword">from</span> <span class="string">&#x27;./_cb.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> keys <span class="keyword">from</span> <span class="string">&#x27;./keys.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回通过真值测试的第一个键名</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">findKey</span>(<span class="params">obj, predicate, context</span>) &#123;</span><br><span class="line">    <span class="comment">// 把条件函数的 this 指向当前上下文</span></span><br><span class="line">    predicate = <span class="title function_">cb</span>(predicate, context);</span><br><span class="line">    <span class="comment">// Object.keys() 的向下兼容版本</span></span><br><span class="line">    <span class="keyword">var</span> _keys = <span class="title function_">keys</span>(obj), key;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = _keys.<span class="property">length</span>; i &lt; length; i++) &#123;</span><br><span class="line">        key = _keys[i];</span><br><span class="line">        <span class="comment">// 返回符合条件的索引</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_">predicate</span>(obj[key], key, obj)) <span class="keyword">return</span> key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
 
 
         </div>
@@ -223,7 +245,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://example.com/2021/08/19/arithmetic/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/",
+                text: "http://example.com/2022/07/03/underscore/04find/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -235,11 +257,9 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://example.com/2021/08/19/arithmetic/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/";
-            const title         = "「LeetCode 1. 两数之和」";
-            const excerpt       = `给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
-你...`;
+            const hostUrl       = "http://example.com/2022/07/03/underscore/04find/";
+            const title         = "「underscore源码解析，find」";
+            const excerpt       = `find_.find(list, predicate, [context])Alias: detect在 list 中逐项查找，返回第一个通过 predicate 迭代函数真值检测的元素值，如果没有元素通过检测则返回 undefine...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -258,10 +278,10 @@
             <div class="footer-tag clearfix">
                 <div class="pull-left">
                 <i class="fa fa-tags"></i>
-                    <a class="tag-none-link" href="/tags/javascript/" rel="tag">javascript</a>
+                    <a class="tag-none-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a>
                 </div>
                 <div class="pull-date">
-                <span>最后编辑：2022-02-17</span>
+                <span>最后编辑：2022-07-03</span>
                 </div>
             </div>
         </footer>
@@ -270,13 +290,9 @@
         <nav class="navigation post-navigation clearfix" role="navigation">
             
             <div class="nav-previous clearfix">
-                <a title=" LeetCode 2. 两数相加" href="/2021/08/19/arithmetic/2.两数相加/">&lt; 上一篇</a>
+                <a title=" underscore源码解析，reduce" href="/2022/06/23/underscore/03reduce/">&lt; 上一篇</a>
             </div>
             
-            
-            <div class="nav-next clearfix">
-                <a title=" LeetCode 5. 最长的回文子字符串" href="/2021/09/25/arithmetic/5.最长的回文子字符串/">下一篇 &gt;</a>
-            </div>
             
         </nav>
     
