@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/avatar.png">
+  <title>uniapp安卓原生插件封装 | MXE23 blog</title>
+  <meta name="author" content="MXE23" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="android, uniapp, vue" />
+  
+  <meta name="description" content="uniapp 原生插件封装的过程及注意事项">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uniapp安卓原生插件封装">
+<meta property="og:url" content="http://example.com/2022/08/21/uniapp/uniapp%E5%AE%89%E5%8D%93%E5%8E%9F%E7%94%9F%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85/index.html">
+<meta property="og:site_name" content="MXE23 blog">
+<meta property="og:description" content="uniapp 原生插件封装的过程及注意事项">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/08/21/uniapp/uniapp%E5%AE%89%E5%8D%93%E5%8E%9F%E7%94%9F%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85/https:/webstatic.mihoyo.com/upload/contentweb/2022/08/16/0b8632a0c1501c7de882cb08789fcf0c_1230141489251612305.png">
+<meta property="article:published_time" content="2022-08-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-21T07:12:34.733Z">
+<meta property="article:author" content="MXE23">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="uniapp">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/08/21/uniapp/uniapp%E5%AE%89%E5%8D%93%E5%8E%9F%E7%94%9F%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85/https:/webstatic.mihoyo.com/upload/contentweb/2022/08/16/0b8632a0c1501c7de882cb08789fcf0c_1230141489251612305.png">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" type="text/css" media="all">
+  
+  
+  <link rel="stylesheet" id="fontawe-css" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" media="all">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+    <script src="https://unpkg.com/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('/images/banner.png');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/images/bg.png');
+        }
+      }
+    
+  </style>
+  
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">MXE23 blog</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>MXE23 blog</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article>
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center">uniapp安卓原生插件封装</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><i class="fa fa-calendar"></i> 2022-08-21</li>
+                <li><i class="fa fa-user"></i> 作者 MXE23</li>
+                <li>
+                    <i class="fa fa-edit"></i> 
+                    
+                    
+                        ~3.03K
+                    
+                    字
+                </li>
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                本文最后编辑于 <time datetime="1661065954733"></time> 前，其中的内容可能需要更新。
+            </div>
+            
+            <hr />
+            <blockquote>
+<p>uniapp 原生插件封装的过程及注意事项</p>
+<span id="more"></span>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="android-studio"><a href="#android-studio" class="headerlink" title="android studio"></a>android studio</h3><p><a target="_blank" rel="noopener" href="https://developer.android.google.cn/">https://developer.android.google.cn/</a><br>uniapp app 并没有直接调用 外部 jar，arr 文件类以及方法的能力，需要经过特定方式对原有的代码进行二次封装<br>最后输出为 aar 文件，以插件的形式进行导入</p>
+<h3 id="HbuilderX"><a href="#HbuilderX" class="headerlink" title="HbuilderX"></a>HbuilderX</h3><p>DCloud 官方的开发工具，uniapp 的打包，发布，调试等，都需要使用<br>下载真机运行插件<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660803332833-d1687654-2730-4dbb-8736-dd2ebd28bf13.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=421&id=u9ea20d52&margin=%5Bobject%20Object%5D&name=image.png&originHeight=421&originWidth=819&originalType=binary&ratio=1&rotation=0&showTitle=false&size=55101&status=done&style=none&taskId=u719c1967-a769-4e37-88d4-dfed894595f&title=&width=819" alt="image.png"></p>
+<h3 id="Android-SDK"><a href="#Android-SDK" class="headerlink" title="Android SDK"></a>Android SDK</h3><p><a target="_blank" rel="noopener" href="https://nativesupport.dcloud.net.cn/AppDocs/download/android">https://nativesupport.dcloud.net.cn/AppDocs/download/android</a><br>DCloud 官方提供的第三方插件开发DEMO 示例，在此基础上开发会更加简单</p>
+<h3 id="依赖的文件（jar、aar等）"><a href="#依赖的文件（jar、aar等）" class="headerlink" title="依赖的文件（jar、aar等）"></a>依赖的文件（jar、aar等）</h3><p>第三方提供的一些特定功能的接口等，没有则跳过</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="插件类型"><a href="#插件类型" class="headerlink" title="插件类型"></a>插件类型</h3><ul>
+<li>Module 不包含 UI 界面的 特定功能</li>
+<li>Component  实现特别功能的 Native 控件</li>
+</ul>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><h3 id="DCloud-安卓插件开发教程"><a href="#DCloud-安卓插件开发教程" class="headerlink" title="DCloud 安卓插件开发教程"></a>DCloud 安卓插件开发教程</h3><p><a target="_blank" rel="noopener" href="https://nativesupport.dcloud.net.cn/NativePlugin/course/android">https://nativesupport.dcloud.net.cn/NativePlugin/course/android</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/attachments/yuque/0/2022/pdf/22526171/1660889924544-f47aa0be-13e4-485e-8a74-44efcf35e191.pdf">成为SDK开发指导v1.0.pdf</a></p>
+<h2 id="开发与调试"><a href="#开发与调试" class="headerlink" title="开发与调试"></a>开发与调试</h2><h3 id="打开项目"><a href="#打开项目" class="headerlink" title="打开项目"></a>打开项目</h3><p>解压 SDK文件<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660803971272-f38da7af-c36d-449f-8c67-6265b16d5e62.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=624&id=u9bb5cb40&margin=%5Bobject%20Object%5D&name=image.png&originHeight=624&originWidth=1053&originalType=binary&ratio=1&rotation=0&showTitle=false&size=55039&status=done&style=none&taskId=u047e5db7-3a7a-4870-925e-e509a154225&title=&width=1053" alt="image.png"><br>其中 UniPlugin-Hello-AS 目录是 android 项目目录<br>打开anroid studio，点击 open，选择到对应的项目，点击OK<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660804123325-94880f43-2134-473c-8bb2-a49c0d02dfdd.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=748&id=u1a4fc75b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=748&originWidth=984&originalType=binary&ratio=1&rotation=0&showTitle=false&size=61524&status=done&style=none&taskId=u1b6895e3-635f-47d7-b36c-e76d4c6faf6&title=&width=984" alt="image.png"></p>
+<p>出现代理设置的窗口时，勾选上选框，选择 NO 即可<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660804191684-cf3e170a-cf28-4fa2-9687-5a61c5328e1d.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=637&id=u156265f8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=637&originWidth=759&originalType=binary&ratio=1&rotation=0&showTitle=false&size=33554&status=done&style=none&taskId=ub1527c95-79de-4e55-991c-5db92cd372f&title=&width=759" alt="image.png"></p>
+<p>如果当前已有打开的项目目录，选择 file -&gt; Close Project 关闭项目后，再打开项目即可<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660804256985-82d66e5c-e789-4507-88b3-581feaeec905.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=558&id=uc7418376&margin=%5Bobject%20Object%5D&name=image.png&originHeight=558&originWidth=946&originalType=binary&ratio=1&rotation=0&showTitle=false&size=45931&status=done&style=none&taskId=u5bbeca0c-6576-4c14-ad0e-08de3eab431&title=&width=946" alt="image.png"></p>
+<h3 id="新建-Module"><a href="#新建-Module" class="headerlink" title="新建 Module"></a>新建 Module</h3><p>将项目目录设置为 Project 形式<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660805140066-e0b836d7-8a25-4acd-9294-8dcfce9c2b02.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=303&id=u09548398&margin=%5Bobject%20Object%5D&name=image.png&originHeight=303&originWidth=505&originalType=binary&ratio=1&rotation=0&showTitle=false&size=14504&status=done&style=none&taskId=u946c8a27-cf1e-4b9e-898f-b01db8643d4&title=&width=505" alt="image.png"><br>在根目录下 新增-&gt; Module<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660805211749-8c90ef68-4f6b-4031-a523-fc412a5497b8.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=467&id=u91a6a8bf&margin=%5Bobject%20Object%5D&name=image.png&originHeight=467&originWidth=1073&originalType=binary&ratio=1&rotation=0&showTitle=false&size=62913&status=done&style=none&taskId=ud62b90ad-55fb-4bf4-bf55-70706058fac&title=&width=1073" alt="image.png"><br>选择 Android Library ，填好对应项目，点击Finish<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660805365341-4b7b2684-572a-4856-98aa-4e918a4d00f3.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=528&id=u49f5d907&margin=%5Bobject%20Object%5D&name=image.png&originHeight=528&originWidth=716&originalType=binary&ratio=1&rotation=0&showTitle=false&size=34061&status=done&style=none&taskId=ucefe9888-0dbb-4b38-aaa2-47a29d36e37&title=&width=716" alt="image.png"></p>
+<h3 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h3><h4 id="新增类"><a href="#新增类" class="headerlink" title="新增类"></a>新增类</h4><p>在新增模块的指定包下新建 java 类，后续会在此处编辑插件的功能代码<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660871340792-b3f5f3f1-c2d6-40cb-a07b-9b3a961264a9.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=910&id=ua7576e41&margin=%5Bobject%20Object%5D&name=image.png&originHeight=910&originWidth=1071&originalType=binary&ratio=1&rotation=0&showTitle=false&size=94984&status=done&style=none&taskId=u860a5b1a-4e74-473f-8997-af2718f2bec&title=&width=1071" alt="image.png"></p>
+<h4 id="配置-gradle"><a href="#配置-gradle" class="headerlink" title="配置 gradle"></a>配置 gradle</h4><p>打开新增模块下的 build.gradle，将 uniplugin_richalert 模块下的 build.gradle 中的内容 复制进去<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660805456066-7b7d5cdd-f3a1-44c5-adb1-3e7c12dd1b00.png#clientId=uac834df7-ee49-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=610&id=u292c5339&margin=%5Bobject%20Object%5D&name=image.png&originHeight=610&originWidth=483&originalType=binary&ratio=1&rotation=0&showTitle=false&size=32832&status=done&style=none&taskId=uf47c9448-172f-4ba6-b62c-dee5f53e71f&title=&width=483" alt="image.png"></p>
+<h4 id="配置依赖"><a href="#配置依赖" class="headerlink" title="配置依赖"></a>配置依赖</h4><p>uniapp-v8-release.aar 是插件必须依赖的包<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660871743173-d543639f-b4d7-4493-91e6-5422b96a64af.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=317&id=ucb89401f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=317&originWidth=868&originalType=binary&ratio=1&rotation=0&showTitle=false&size=35697&status=done&style=none&taskId=ufa64cbb5-0552-41bc-8cd4-4fd409f8e82&title=&width=868" alt="image.png"><br>如果有其他需要依赖的包，jar 文件可以放在 模块下的 libs 文件夹内<br>如果是 aar 在项目根目录新建一个 libs 文件，放在其中（放在模块的libs中会导致打包报错）<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660871924106-2489e0d5-9725-4021-bde9-9cbee6014003.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=545&id=u346a23d0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=545&originWidth=503&originalType=binary&ratio=1&rotation=0&showTitle=false&size=31264&status=done&style=none&taskId=ufd9cc34c-1a6d-42ba-996c-66c02f49351&title=&width=503" alt="image.png"><br>在 根目录下 setting.gradle 中 新增 libs 目录<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660872019193-2001bec6-5914-4336-9278-b80d9e4fb19b.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=242&id=KaF8e&margin=%5Bobject%20Object%5D&name=image.png&originHeight=242&originWidth=425&originalType=binary&ratio=1&rotation=0&showTitle=false&size=19624&status=done&style=none&taskId=u80ac3737-2c17-4892-b213-017890acaef&title=&width=425" alt="image.png"><br>配置根目录的 build.gradle<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660872336035-331cc10e-6eeb-4150-b125-c779bc4cdd1e.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=390&id=uf36c856b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=390&originWidth=615&originalType=binary&ratio=1&rotation=0&showTitle=false&size=25665&status=done&style=none&taskId=u10a32f09-168f-4bde-9398-c4665dc3ab6&title=&width=615" alt="image.png"><br>在模块下添加 aar 的依赖<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660872420477-7577a953-efe2-4c84-930c-d652735ad3b7.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=346&id=u2e99b842&margin=%5Bobject%20Object%5D&name=image.png&originHeight=346&originWidth=701&originalType=binary&ratio=1&rotation=0&showTitle=false&size=40390&status=done&style=none&taskId=u5990594f-e0cb-44f9-b13c-a76a0a6b1eb&title=&width=701" alt="image.png"></p>
+<h4 id="配置插件-1"><a href="#配置插件-1" class="headerlink" title="配置插件"></a>配置插件</h4><p>app -&gt; src -&gt; main -&gt; dcloud_uniplugins.json 中 配置插件<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660872081246-ad79f02d-10fa-4d24-9c47-86abc171a138.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=780&id=ud607c4c0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=780&originWidth=1140&originalType=binary&ratio=1&rotation=0&showTitle=false&size=99217&status=done&style=none&taskId=u1006bc7d-efa1-4979-82f0-757b998639e&title=&width=1140" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660872177994-49c44bc5-549e-4b2e-97b4-6361054565eb.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=241&id=u7f1e5124&margin=%5Bobject%20Object%5D&name=image.png&originHeight=241&originWidth=559&originalType=binary&ratio=1&rotation=0&showTitle=false&size=19231&status=done&style=none&taskId=u6c3e1a6e-3e19-4d5c-b6ce-2902c7ed6b0&title=&width=559" alt="image.png"></p>
+<h4 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h4><p>点击构建按钮，成功后开始编写插件代码<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660872482688-fc543379-741b-421d-9f15-c5098ac374f3.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=1050&id=u37e80325&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1050&originWidth=1920&originalType=binary&ratio=1&rotation=0&showTitle=false&size=194885&status=done&style=none&taskId=ue5e0f661-ac53-4e45-a61b-00c6a64c329&title=&width=1920" alt="image.png"></p>
+<h3 id="插件功能开发"><a href="#插件功能开发" class="headerlink" title="插件功能开发"></a>插件功能开发</h3><p>插件类需要集成 UniModule<br>暴露给 uniapp 的方法需要用 @ UniJSMethod 修饰<br>通过 callback.invoke 给 调用方法的回调函数返回数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.sinoma.uhf;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> io.dcloud.feature.uniapp.annotation.UniJSMethod;</span><br><span class="line"><span class="keyword">import</span> io.dcloud.feature.uniapp.bridge.UniJSCallback;</span><br><span class="line"><span class="keyword">import</span> io.dcloud.feature.uniapp.common.UniModule;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UHFModule</span> <span class="keyword">extends</span> <span class="title class_">UniModule</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@UniJSMethod</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(JSONObject json, UniJSCallback callback)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> json.getIntValue(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> json.getIntValue(<span class="string">&quot;b&quot;</span>);</span><br><span class="line"></span><br><span class="line">        callback.invoke(<span class="keyword">new</span> <span class="title class_">JSONObject</span>()&#123;&#123;</span><br><span class="line">            put(<span class="string">&quot;code&quot;</span>,<span class="number">0</span>);</span><br><span class="line">            put(<span class="string">&quot;data&quot;</span>, a + b);</span><br><span class="line">        &#125;&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UniApp-项目配置"><a href="#UniApp-项目配置" class="headerlink" title="UniApp 项目配置"></a>UniApp 项目配置</h2><h3 id="新建应用"><a href="#新建应用" class="headerlink" title="新建应用"></a>新建应用</h3><p><a target="_blank" rel="noopener" href="https://dev.dcloud.net.cn/#/pages/app/list">https://dev.dcloud.net.cn/#/pages/app/list</a><br>登录 DCloud 开发者中心<br>点击创建应用<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877182701-a5912c9e-8b68-488e-a231-17b0a606e29f.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=979&id=u39f626f3&margin=%5Bobject%20Object%5D&name=image.png&originHeight=979&originWidth=1920&originalType=binary&ratio=1&rotation=0&showTitle=false&size=83043&status=done&style=none&taskId=uacf7fdec-ef2c-4106-ac2e-04700a4e356&title=&width=1920" alt="image.png"><br>填写对应信息<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877129418-2162b37d-f03c-457e-afbb-b0085b7c7214.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=426&id=uffdf0336&margin=%5Bobject%20Object%5D&name=image.png&originHeight=426&originWidth=736&originalType=binary&ratio=1&rotation=0&showTitle=false&size=12270&status=done&style=none&taskId=udcb057ae-edfb-4191-b5b6-c3be4e9ca2d&title=&width=736" alt="image.png"></p>
+<h3 id="创建证书"><a href="#创建证书" class="headerlink" title="创建证书"></a>创建证书</h3><p>点击应用名称 -&gt; 离线打包 key 管理<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877408486-917effb0-9e02-4279-8dd8-4985cb4ea7d1.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=812&id=u8eda9847&margin=%5Bobject%20Object%5D&name=image.png&originHeight=812&originWidth=1303&originalType=binary&ratio=1&rotation=0&showTitle=false&size=50505&status=done&style=none&taskId=uf1893956-6eda-4220-8caa-09127b2da2c&title=&width=1303" alt="image.png"><br>根据操作指引生成证书后，填写到 sha1签名中<br>Android 包名 和 iOS BundleId 都填写成 插件的 applicationId<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877670410-ba23b8da-7093-4c15-94af-2dad4d4e0065.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=611&id=ue6e06a57&margin=%5Bobject%20Object%5D&name=image.png&originHeight=611&originWidth=1324&originalType=binary&ratio=1&rotation=0&showTitle=false&size=103565&status=done&style=none&taskId=u8335cd8f-faf6-46eb-8019-dbd393486a0&title=&width=1324" alt="image.png"><br>全部填写完成后，点击保存生成 android 和 ios 的app key</p>
+<p>将生成的 keystore 文件 放入 app 文件夹内<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877748926-a56774af-6002-499c-bf87-a2d3ba4f1762.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=266&id=u27647a47&margin=%5Bobject%20Object%5D&name=image.png&originHeight=266&originWidth=446&originalType=binary&ratio=1&rotation=0&showTitle=false&size=15013&status=done&style=none&taskId=ue92f1a9c-2f94-47c4-85b0-1960996ea2f&title=&width=446" alt="image.png"><br>配置 app-&gt; build.gradle 的 证书<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877787118-02c1dfdb-ee5c-4a24-981c-4becf0a35a95.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=273&id=u669c5346&margin=%5Bobject%20Object%5D&name=image.png&originHeight=273&originWidth=629&originalType=binary&ratio=1&rotation=0&showTitle=false&size=21674&status=done&style=none&taskId=ue77f03e4-0e9b-4ea5-b9c2-a9acc47387b&title=&width=629" alt="image.png"><br>打开 app -&gt; src -&gt; main -&gt; AndroidManifest.xml 配置生成的 app key<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877931913-9293a5ed-bb1e-4f27-bc48-0183caa0a745.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=828&id=ud61cebe2&margin=%5Bobject%20Object%5D&name=image.png&originHeight=828&originWidth=1879&originalType=binary&ratio=1&rotation=0&showTitle=false&size=165264&status=done&style=none&taskId=u839dd2d2-e2b6-4c3d-9dbc-949e6fbb7fe&title=&width=1879" alt="image.png"></p>
+<h3 id="编写前端测试代码"><a href="#编写前端测试代码" class="headerlink" title="编写前端测试代码"></a>编写前端测试代码</h3><p>新建 uniapp 项目，注意项目名和 开发者中心的 应用名称保持一致，同时 HBuilderX要登录 开发者账号<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660878098641-b9d42c9a-7dbc-4c49-bda0-6d32f195f8c8.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=970&id=uca6a108b&margin=%5Bobject%20Object%5D&name=image.png&originHeight=970&originWidth=1168&originalType=binary&ratio=1&rotation=0&showTitle=false&size=199021&status=done&style=none&taskId=ubff2c29e-2f86-40b6-ae90-8a63e620018&title=&width=1168" alt="image.png"><br>在 manifest.json 中 查看 appId和开发者中心的应用 appId 是否保持一致，不一致需要重新获取<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660878146905-c047eb34-44d6-43c6-89d4-c696846a7e1e.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=921&id=uecc15810&margin=%5Bobject%20Object%5D&name=image.png&originHeight=921&originWidth=1920&originalType=binary&ratio=1&rotation=0&showTitle=false&size=83325&status=done&style=none&taskId=ude10c904-f9fe-480d-8ab2-eeded29073c&title=&width=1920" alt="image.png"></p>
+<p>在uniapp 中的测试页中写好对插件的引用，以及一些测试<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660877988075-6e841294-992b-4b4e-a858-b4dc38575d77.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=921&id=uff243a57&margin=%5Bobject%20Object%5D&name=image.png&originHeight=921&originWidth=1589&originalType=binary&ratio=1&rotation=0&showTitle=false&size=84757&status=done&style=none&taskId=u981c134b-b042-43eb-9d94-141476d233f&title=&width=1589" alt="image.png"><br>写完测试代码后，点击发行，生成本地打包资源<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660878257347-2a8cc3ac-06ee-4dd5-82b7-e1a1574f7b14.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=588&id=ub95fb8bb&margin=%5Bobject%20Object%5D&name=image.png&originHeight=588&originWidth=927&originalType=binary&ratio=1&rotation=0&showTitle=false&size=75137&status=done&style=none&taskId=u26ab09fc-0318-4846-b9fd-bde7aa8817c&title=&width=927" alt="image.png"><br>资源打包完成以后，将 app -&gt; src -&gt; main -&gt; assets -&gt; app 内文件夹删除，替换为打包生成的文件<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660878388358-bf49d546-db96-4c8b-87db-edd846f8b053.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=573&id=ubb695a93&margin=%5Bobject%20Object%5D&name=image.png&originHeight=573&originWidth=1040&originalType=binary&ratio=1&rotation=0&showTitle=false&size=37252&status=done&style=none&taskId=u9ba69bda-ea88-410a-88d1-a6d46ab80ca&title=&width=1040" alt="image.png"></p>
+<h3 id="连接设备"><a href="#连接设备" class="headerlink" title="连接设备"></a>连接设备</h3><p>使用 usb 连接 电脑，打开设备的开发模式后，开启usb调试，安装等功能<br>连接成功后，运行环境中会多出对应的设备<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660878794995-87d60d2a-000c-4871-adcc-680eefe4f223.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=248&id=ud714ae11&margin=%5Bobject%20Object%5D&name=image.png&originHeight=248&originWidth=514&originalType=binary&ratio=1&rotation=0&showTitle=false&size=20206&status=done&style=none&taskId=u72285494-e8ed-4978-876c-c5eeb61b7f1&title=&width=514" alt="image.png"><br>点击运行按钮，运行到设备<br>在设备上测试插件的功能是否有效</p>
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p>双击 gradle 下 对应模块 task 下 的 打包脚本<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660878971416-ae4442de-4c9b-4bd9-ac1f-38f444968d90.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=1050&id=u151f3402&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1050&originWidth=1920&originalType=binary&ratio=1&rotation=0&showTitle=false&size=280624&status=done&style=none&taskId=ua62f38f0-c794-4cb5-8e6f-692ac9acc5e&title=&width=1920" alt="image.png"><br>如果gradle中没有对应层级，说明 task 被折叠<br>点击 file 下的 setting，将对应项目 取消勾选，即可看到所有的 内容<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660879057353-d864bf50-6c68-4c16-bb30-bd4ef3118ba9.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=806&id=ub4a3f6f9&margin=%5Bobject%20Object%5D&name=image.png&originHeight=806&originWidth=1336&originalType=binary&ratio=1&rotation=0&showTitle=false&size=106783&status=done&style=none&taskId=u0d883673-b983-42fa-ad62-494402d402b&title=&width=1336" alt="image.png"></p>
+<h3 id="打包自定义调试基座"><a href="#打包自定义调试基座" class="headerlink" title="打包自定义调试基座"></a>打包自定义调试基座</h3><h4 id="云打包"><a href="#云打包" class="headerlink" title="云打包"></a>云打包</h4><p>根据文档的对应格式，配置好插件，以及生成的 aar 文件<br><a target="_blank" rel="noopener" href="https://nativesupport.dcloud.net.cn/NativePlugin/course/package">https://nativesupport.dcloud.net.cn/NativePlugin/course/package</a><br>在 HbuilderX 中的 运行中，选择 制作自定义调试基座<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660879271436-f8128cfd-5142-4be2-9939-2c80903e66e5.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=330&id=u27d0e829&margin=%5Bobject%20Object%5D&name=image.png&originHeight=330&originWidth=489&originalType=binary&ratio=1&rotation=0&showTitle=false&size=34315&status=done&style=none&taskId=u4eb5a893-5cfe-4758-bd65-cd79c9970ff&title=&width=489" alt="image.png"><br>填写好对应信息后选择打包<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660879331890-b15d70da-acc4-4381-8814-55eccac45c9e.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=892&id=ubfe035a6&margin=%5Bobject%20Object%5D&name=image.png&originHeight=892&originWidth=705&originalType=binary&ratio=1&rotation=0&showTitle=false&size=31282&status=done&style=none&taskId=u55ee7919-eb3f-4102-9385-f68ea68648e&title=&width=705" alt="image.png"><br>等待云打包完毕后，在运行基座选中，选择自定义调试基座，后续运行中即可调用到对应插件方法</p>
+<h4 id="本地打包"><a href="#本地打包" class="headerlink" title="本地打包"></a>本地打包</h4><p>可以在 android studio 中 点击 build 构建 apk<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660879136414-ecd03ef8-adf7-4792-80c9-9fd4ca719c70.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=427&id=ua908994f&margin=%5Bobject%20Object%5D&name=image.png&originHeight=427&originWidth=868&originalType=binary&ratio=1&rotation=0&showTitle=false&size=85658&status=done&style=none&taskId=u719c193b-e057-402e-b9b6-0fd8b1583c5&title=&width=868" alt="image.png"><br>生成的apk 会存放到 apk 的 build 目录下<br><img src="https://cdn.nlark.com/yuque/0/2022/png/22526171/1660879173457-c76b2530-3d5f-4186-b7ec-15b08e0b6004.png#clientId=u461b8c8c-bac7-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=275&id=u7368b800&margin=%5Bobject%20Object%5D&name=image.png&originHeight=275&originWidth=458&originalType=binary&ratio=1&rotation=0&showTitle=false&size=11784&status=done&style=none&taskId=u38a7dc38-25b3-4bd1-9046-690cb5c85af&title=&width=458" alt="image.png"><br>将该文件替换到 uniapp 项目下 unpackage 中的 对应的 apk 即可</p>
+
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5>本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                
+                
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                    <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2022/08/21/uniapp/uniapp%E5%AE%89%E5%8D%93%E5%8E%9F%E7%94%9F%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2022/08/21/uniapp/uniapp%E5%AE%89%E5%8D%93%E5%8E%9F%E7%94%9F%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85/";
+            const title         = "「uniapp安卓原生插件封装」";
+            const excerpt       = `uniapp 原生插件封装的过程及注意事项`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/android/" rel="tag">android</a>, <a class="tag-none-link" href="/tags/uniapp/" rel="tag">uniapp</a>, <a class="tag-none-link" href="/tags/vue/" rel="tag">vue</a>
+                </div>
+                <div class="pull-date">
+                <span>最后编辑：2022-08-21</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" promise 实现" href="/2022/07/23/sourcecode/promise实现/">&lt; 上一篇</a>
+            </div>
+            
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.png" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E4%BA%AB%E6%96%87%E7%AB%A0/">分享文章</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">学习总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BD%B1%E9%9F%B3%E8%A7%86%E9%A2%91/">影音视频</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0/">方法实现</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">源码解析</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">7</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/MikuMikuDance/" style="font-size: 0.65em;">MikuMikuDance</a> <a href="/tags/MySQL/" style="font-size: 0.6em;">MySQL</a> <a href="/tags/Ray-mmd/" style="font-size: 0.65em;">Ray-mmd</a> <a href="/tags/SQL/" style="font-size: 0.7em;">SQL</a> <a href="/tags/SQL-Server/" style="font-size: 0.65em;">SQL Server</a> <a href="/tags/android/" style="font-size: 0.6em;">android</a> <a href="/tags/css/" style="font-size: 0.6em;">css</a> <a href="/tags/eventBus/" style="font-size: 0.6em;">eventBus</a> <a href="/tags/javascript/" style="font-size: 0.8em;">javascript</a> <a href="/tags/js/" style="font-size: 0.6em;">js</a> <a href="/tags/react/" style="font-size: 0.65em;">react</a> <a href="/tags/uniapp/" style="font-size: 0.7em;">uniapp</a> <a href="/tags/vue/" style="font-size: 0.75em;">vue</a> <a href="/tags/web/" style="font-size: 0.6em;">web</a> <a href="/tags/wechat/" style="font-size: 0.6em;">wechat</a> <a href="/tags/%E5%81%87%E9%9D%A2%E9%AA%91%E5%A3%AB/" style="font-size: 0.6em;">假面骑士</a> <a href="/tags/%E5%81%87%E9%9D%A2%E9%AA%91%E5%A3%AB01/" style="font-size: 0.6em;">假面骑士01</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.6em;">前端</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2022/08/21/uniapp/uniapp%E5%AE%89%E5%8D%93%E5%8E%9F%E7%94%9F%E6%8F%92%E4%BB%B6%E5%B0%81%E8%A3%85/"><i class="fa  fa-book"></i> uniapp安卓原生插件封装</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/07/23/sourcecode/promise%E5%AE%9E%E7%8E%B0/"><i class="fa  fa-book"></i> promise 实现</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/07/04/underscore/05filter/"><i class="fa  fa-book"></i> underscore源码解析，filter</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/07/03/underscore/04find/"><i class="fa  fa-book"></i> underscore源码解析，find</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2022/06/23/underscore/03reduce/"><i class="fa  fa-book"></i> underscore源码解析，reduce</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  class="ap-lrc"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
+                        
+                        
+                        
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Candinya"><i class="fa fa fa-share-alt-square"></i></a></li>
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/Candinya"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2022 MXE23 blog 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by MXE23.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://unpkg.com/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+    <script defer src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="5321409260"
+        order="list"
+        fixed="true"
+    >
+    </meting-js>
+
+
+
+    <script defer src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
