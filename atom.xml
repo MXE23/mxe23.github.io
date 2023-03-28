@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-03-28T06:24:57.269Z</updated>
+  <updated>2023-03-28T10:47:53.896Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,14 +21,12 @@
     <link href="http://example.com/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/"/>
     <id>http://example.com/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/</id>
     <published>2023-03-27T16:00:00.000Z</published>
-    <updated>2023-03-28T06:24:57.269Z</updated>
+    <updated>2023-03-28T10:47:53.896Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>根据秋叶大佬等人的B站视频，对 novel-ai 的尝试</p></blockquote><span id="more"></span><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><p><a href="https://www.bilibili.com/video/BV17d4y1C73R/?spm_id_from=333.999.0.0">整合包</a></p><p><a href="https://civitai.com/">civiai</a></p><h1 id="使用过程"><a href="#使用过程" class="headerlink" title="使用过程"></a>使用过程</h1><h2 id="1-解压缩"><a href="#1-解压缩" class="headerlink" title="1. 解压缩"></a>1. 解压缩</h2><p>解压后的整合包目录<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/01.png" alt="目录"></p><h2 id="2-填写用户协议"><a href="#2-填写用户协议" class="headerlink" title="2. 填写用户协议"></a>2. 填写用户协议</h2><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/02.png" alt="用户协议"></p><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/03.png" alt="填写"></p><h2 id="3-启动"><a href="#3-启动" class="headerlink" title="3. 启动"></a>3. 启动</h2><p>双击 A启动器.exe<br>点击一键启动</p><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/04.png" alt="启动"></p><p>等待浏览器打开网页<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/05.png" alt="启动成功"></p><h1 id="生成-AI-绘画"><a href="#生成-AI-绘画" class="headerlink" title="生成 AI 绘画"></a>生成 AI 绘画</h1><p>输入关键词，导入配置后生成即可<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/06.png" alt="生成"></p><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="添加-stable-diffusion-模型"><a href="#添加-stable-diffusion-模型" class="headerlink" title="添加 stable diffusion 模型"></a>添加 stable diffusion 模型</h2><p>在启动器的模型列表中找到需要使用的模型，下载后添加<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/07.png" alt="模型列表"><br>重启应用即可<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/08.png" alt="模型列表"></p><h2 id="添加-lora-模型"><a href="#添加-lora-模型" class="headerlink" title="添加 lora 模型"></a>添加 lora 模型</h2><h3 id="1-下载-lora-模型"><a href="#1-下载-lora-模型" class="headerlink" title="1. 下载 lora 模型"></a>1. 下载 lora 模型</h3><p>在 civiai 网站上 找到喜欢的 ai 模型<br>在启动器中添加</p><h3 id="2-使用模型"><a href="#2-使用模型" class="headerlink" title="2. 使用模型"></a>2. 使用模型</h3><p>点击 lora 插件，点击启动，选择模型<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/09.png" alt="使用模型"></p><h3 id="3-设置参数"><a href="#3-设置参数" class="headerlink" title="3. 设置参数"></a>3. 设置参数</h3><p>在 civiai 中找到，或自己输入相应的关键词<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/10.png" alt="civiai"></p><p>输入后导入配置<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/11.png" alt="配置"></p><p>选择之前下载的 loar 模型<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/12.png" alt="使用模型"></p><p>点击生成，等待生成成功<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/13.png" alt="生成成功"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><p><a href="https://www.bilibili.com/video/BV17d4y1C73R/?spm_id_from=333.999.0.0">整合包</a></p><p><a href="https://civitai.com/">civiai</a></p><h1 id="使用过程"><a href="#使用过程" class="headerlink" title="使用过程"></a>使用过程</h1><h2 id="1-解压缩"><a href="#1-解压缩" class="headerlink" title="1. 解压缩"></a>1. 解压缩</h2><p>解压后的整合包目录<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/01.png" alt="目录"></p><h2 id="2-填写用户协议"><a href="#2-填写用户协议" class="headerlink" title="2. 填写用户协议"></a>2. 填写用户协议</h2><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/02.png" alt="用户协议"></p><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/03.png" alt="填写"></p><h2 id="3-启动"><a href="#3-启动" class="headerlink" title="3. 启动"></a>3. 启动</h2><p>双击 A启动器.exe<br>点击一键启动</p><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/04.png" alt="启动"></p><p>等待浏览器打开网页<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/05.png" alt="启动成功"></p><h1 id="生成-AI-绘画"><a href="#生成-AI-绘画" class="headerlink" title="生成 AI 绘画"></a>生成 AI 绘画</h1><p>输入关键词，导入配置后生成即可<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/06.png" alt="生成"></p><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="添加-stable-diffusion-模型"><a href="#添加-stable-diffusion-模型" class="headerlink" title="添加 stable diffusion 模型"></a>添加 stable diffusion 模型</h2><p>在启动器的模型列表中找到需要使用的模型，下载后添加<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/07.png" alt="模型列表"><br>重启应用即可<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/08.png" alt="模型列表"></p><h2 id="添加-lora-模型"><a href="#添加-lora-模型" class="headerlink" title="添加 lora 模型"></a>添加 lora 模型</h2><h3 id="1-下载-lora-模型"><a href="#1-下载-lora-模型" class="headerlink" title="1. 下载 lora 模型"></a>1. 下载 lora 模型</h3><p>在 civiai 网站上 找到喜欢的 ai 模型<br>在启动器中添加</p><h3 id="2-使用模型"><a href="#2-使用模型" class="headerlink" title="2. 使用模型"></a>2. 使用模型</h3><p>点击 lora 插件，点击启动，选择模型<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/09.png" alt="使用模型"></p><h3 id="3-设置参数"><a href="#3-设置参数" class="headerlink" title="3. 设置参数"></a>3. 设置参数</h3><p>在 civiai 中找到，或自己输入相应的关键词<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/10.png" alt="civiai"></p><p>输入后导入配置<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/11.png" alt="配置"></p><p>选择之前下载的 loar 模型<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/12.png" alt="使用模型"></p><p>点击生成，等待生成成功<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/13.png" alt="生成成功"></p>]]></content>
     
     
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;根据秋叶大佬等人的B站视频，对 novel-ai 的尝试&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
+    <summary type="html">根据秋叶大佬等人的B站视频，基于 stable diffusion 的 AI 绘画尝试</summary>
     
     
     
@@ -46,7 +44,7 @@
     <link href="http://example.com/2023/03/27/notified/%E9%80%9A%E7%9F%A5/"/>
     <id>http://example.com/2023/03/27/notified/%E9%80%9A%E7%9F%A5/</id>
     <published>2023-03-26T16:00:00.000Z</published>
-    <updated>2023-03-27T15:19:08.293Z</updated>
+    <updated>2023-03-28T10:49:05.838Z</updated>
     
     <content type="html"><![CDATA[<h1 id="更改主题-很多配置还未更改，待更新，逐步上传以前的文档"><a href="#更改主题-很多配置还未更改，待更新，逐步上传以前的文档" class="headerlink" title="更改主题,很多配置还未更改，待更新，逐步上传以前的文档"></a>更改主题,很多配置还未更改，待更新，逐步上传以前的文档</h1>]]></content>
     
