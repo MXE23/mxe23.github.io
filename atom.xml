@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-03-27T15:19:08.293Z</updated>
+  <updated>2023-03-28T06:24:57.269Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI绘画尝试</title>
+    <link href="http://example.com/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/"/>
+    <id>http://example.com/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/</id>
+    <published>2023-03-27T16:00:00.000Z</published>
+    <updated>2023-03-28T06:24:57.269Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>根据秋叶大佬等人的B站视频，对 novel-ai 的尝试</p></blockquote><span id="more"></span><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><p><a href="https://www.bilibili.com/video/BV17d4y1C73R/?spm_id_from=333.999.0.0">整合包</a></p><p><a href="https://civitai.com/">civiai</a></p><h1 id="使用过程"><a href="#使用过程" class="headerlink" title="使用过程"></a>使用过程</h1><h2 id="1-解压缩"><a href="#1-解压缩" class="headerlink" title="1. 解压缩"></a>1. 解压缩</h2><p>解压后的整合包目录<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/01.png" alt="目录"></p><h2 id="2-填写用户协议"><a href="#2-填写用户协议" class="headerlink" title="2. 填写用户协议"></a>2. 填写用户协议</h2><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/02.png" alt="用户协议"></p><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/03.png" alt="填写"></p><h2 id="3-启动"><a href="#3-启动" class="headerlink" title="3. 启动"></a>3. 启动</h2><p>双击 A启动器.exe<br>点击一键启动</p><p><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/04.png" alt="启动"></p><p>等待浏览器打开网页<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/05.png" alt="启动成功"></p><h1 id="生成-AI-绘画"><a href="#生成-AI-绘画" class="headerlink" title="生成 AI 绘画"></a>生成 AI 绘画</h1><p>输入关键词，导入配置后生成即可<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/06.png" alt="生成"></p><h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="添加-stable-diffusion-模型"><a href="#添加-stable-diffusion-模型" class="headerlink" title="添加 stable diffusion 模型"></a>添加 stable diffusion 模型</h2><p>在启动器的模型列表中找到需要使用的模型，下载后添加<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/07.png" alt="模型列表"><br>重启应用即可<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/08.png" alt="模型列表"></p><h2 id="添加-lora-模型"><a href="#添加-lora-模型" class="headerlink" title="添加 lora 模型"></a>添加 lora 模型</h2><h3 id="1-下载-lora-模型"><a href="#1-下载-lora-模型" class="headerlink" title="1. 下载 lora 模型"></a>1. 下载 lora 模型</h3><p>在 civiai 网站上 找到喜欢的 ai 模型<br>在启动器中添加</p><h3 id="2-使用模型"><a href="#2-使用模型" class="headerlink" title="2. 使用模型"></a>2. 使用模型</h3><p>点击 lora 插件，点击启动，选择模型<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/09.png" alt="使用模型"></p><h3 id="3-设置参数"><a href="#3-设置参数" class="headerlink" title="3. 设置参数"></a>3. 设置参数</h3><p>在 civiai 中找到，或自己输入相应的关键词<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/10.png" alt="civiai"></p><p>输入后导入配置<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/11.png" alt="配置"></p><p>选择之前下载的 loar 模型<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/12.png" alt="使用模型"></p><p>点击生成，等待生成成功<br><img src="/2023/03/28/Share/AI%E7%BB%98%E7%94%BB%E5%B0%9D%E8%AF%95/13.png" alt="生成成功"></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;根据秋叶大佬等人的B站视频，对 novel-ai 的尝试&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="分享文章" scheme="http://example.com/categories/%E5%88%86%E4%BA%AB%E6%96%87%E7%AB%A0/"/>
+    
+    
+    <category term="AI" scheme="http://example.com/tags/AI/"/>
+    
+    <category term="分享" scheme="http://example.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>博客更换主题</title>
@@ -466,32 +491,6 @@
       
     <summary type="html">&lt;p&gt;给你一个字符串 s，找到 s 中最长的回文子串。&lt;/p&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;</summary>
-      
-    
-    
-    
-    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="javascript" scheme="http://example.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 1. 两数之和</title>
-    <link href="http://example.com/2021/08/19/arithmetic/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
-    <id>http://example.com/2021/08/19/arithmetic/1.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
-    <published>2021-08-18T16:00:00.000Z</published>
-    <updated>2022-02-17T15:11:26.805Z</updated>
-    
-    <content type="html"><![CDATA[<p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p><p>你可以按任意顺序返回答案。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">解题思路：遍历整个数组，每遍历到一个数，就将他与目标值的差值以及索引缓存起来，</span></span><br><span class="line"><span class="comment">直到后续数中存在有差值集合中的任意一项，返回结果</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="keyword">function</span> (<span class="params">nums,target</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> length = nums.<span class="property">length</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length;i++)&#123;</span><br><span class="line">        <span class="keyword">const</span> num = nums[i]</span><br><span class="line">        <span class="keyword">if</span>(num <span class="keyword">in</span> obj)&#123;</span><br><span class="line">            <span class="keyword">return</span> [obj[num],i]</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            obj[target - num] = i</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者可以使用map</span></span><br><span class="line"><span class="keyword">var</span> twoSum = <span class="keyword">function</span> (<span class="params">nums,target</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>()</span><br><span class="line">    <span class="keyword">const</span> length = nums.<span class="property">length</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(map.<span class="title function_">has</span>(nums[i]))&#123;</span><br><span class="line">            <span class="keyword">return</span> [map.<span class="title function_">get</span>(nums[i]),i]</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            map.<span class="title function_">set</span>(target-nums[i],i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。&lt;/p&gt;
-&lt;p&gt;你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。&lt;/p&gt;
-&lt;p&gt;你可以按任意顺</summary>
       
     
     
