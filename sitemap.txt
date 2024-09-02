@@ -1,3 +1,4 @@
+http://example.com/2024/09/02/MikuMikuDance/%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D/
 http://example.com/2024/01/08/NestJs/NestJs%E8%B0%83%E7%94%A8%E8%AE%AF%E9%A3%9EOCR/
 http://example.com/2024/08/10/NestJs/NestJs%E8%B0%83%E7%94%A8%E6%96%87%E5%BF%83Api/
 http://example.com/2024/01/12/NestJs/NestJS%E5%9B%BE%E7%89%87%E5%8E%BB%E8%83%8C%E6%99%AF/
@@ -41,7 +42,6 @@ http://example.com/2020/04/19/Share/%E5%81%87%E9%9D%A2%E9%AA%91%E5%A3%AB%E5%B7%B
 http://example.com/2021/04/19/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7/
 http://example.com/2021/04/29/SQL/%E8%8E%B7%E5%8F%96%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%8F%8A%E5%B1%9E%E6%80%A7%20copy/
 http://example.com/2018/11/29/MikuMikuDance/%E6%9F%93%E4%B8%8A%E4%BD%A0%E7%9A%84%E9%A2%9C%E8%89%B2/
-http://example.com/2020/11/07/MikuMikuDance/%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D/
 http://example.com/
 http://example.com/tags/javascript/
 http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/
@@ -74,6 +74,7 @@ http://example.com/tags/c/
 http://example.com/tags/linux/
 http://example.com/tags/nestjs/
 http://example.com/tags/typescript/
+http://example.com/tags/Blender/
 http://example.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/
 http://example.com/categories/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/
 http://example.com/categories/%E5%BD%B1%E9%9F%B3%E8%A7%86%E9%A2%91/

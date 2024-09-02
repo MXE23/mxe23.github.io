@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-30T14:12:09.896Z</updated>
+  <updated>2024-09-02T13:55:05.406Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>宵宫-彩虹节拍</title>
+    <link href="http://example.com/2024/09/02/MikuMikuDance/%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D/"/>
+    <id>http://example.com/2024/09/02/MikuMikuDance/%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D/</id>
+    <published>2024-09-01T16:00:00.000Z</published>
+    <updated>2024-09-02T13:55:05.406Z</updated>
+    
+    <content type="html"><![CDATA[<p><video style="width:100%" controls autoplay src="http://47.99.73.39:9000/source/MMD/%E5%AE%B5%E5%AE%AB%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D.mp4"></video></p><p>尝试了一下blender的仿原神渲染预设</p><h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a>借物表</h3><p>动作：兰若_Ruo<br>镜头：秋燚QY<br>渲染：小二今天吃啥啊</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;video style=&quot;width:100%&quot; controls autoplay src=&quot;http://47.99.73.39:9000/source/MMD/%E5%AE%B5%E5%AE%AB%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8</summary>
+      
+    
+    
+    
+    <category term="影音视频" scheme="http://example.com/categories/%E5%BD%B1%E9%9F%B3%E8%A7%86%E9%A2%91/"/>
+    
+    
+    <category term="MikuMikuDance" scheme="http://example.com/tags/MikuMikuDance/"/>
+    
+    <category term="Blender" scheme="http://example.com/tags/Blender/"/>
+    
+  </entry>
   
   <entry>
     <title>NestJs 调用百度千帆大模型</title>
@@ -477,30 +503,6 @@
     
     
     <category term="工具" scheme="http://example.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一些实用的js方法</title>
-    <link href="http://example.com/2021/10/22/JavaScript/%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
-    <id>http://example.com/2021/10/22/JavaScript/%E8%BF%90%E7%AE%97%E7%AC%A6/</id>
-    <published>2021-10-21T16:00:00.000Z</published>
-    <updated>2022-02-17T15:14:07.943Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="实用方法"><a href="#实用方法" class="headerlink" title="实用方法"></a>实用方法</h1><h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><blockquote><p>无先后顺序</p></blockquote><h3 id="1-a-b"><a href="#1-a-b" class="headerlink" title="1.  a ?? b"></a>1.  a ?? b</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a || b <span class="comment">// 当 a 为 假(包含&#x27;&#x27;,0等)，返回 b</span></span><br><span class="line">a ?? b <span class="comment">// 仅当 a 等于 null 或 undefined 返回 b</span></span><br></pre></td></tr></table></figure><h3 id="2-逻辑且赋值-x-amp-amp-y"><a href="#2-逻辑且赋值-x-amp-amp-y" class="headerlink" title="2. 逻辑且赋值 x &amp;&amp;= y"></a>2. 逻辑且赋值 x &amp;&amp;= y</h3><p>仅当 x 为真时赋值</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">a &amp;&amp;= <span class="number">2</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="comment">// expected output: 2</span></span><br><span class="line"></span><br><span class="line">b &amp;&amp;= <span class="number">2</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br></pre></td></tr></table></figure><h3 id="3-逻辑空赋值-x-y"><a href="#3-逻辑空赋值-x-y" class="headerlink" title="3.  逻辑空赋值  x ??= y"></a>3.  逻辑空赋值  x ??= y</h3><p>仅当 x 为 null 或 undefined 赋值</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">duration</span>: <span class="number">50</span> &#125;;</span><br><span class="line"></span><br><span class="line">a.<span class="property">duration</span> ??= <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">duration</span>);</span><br><span class="line"><span class="comment">// expected output: 50</span></span><br><span class="line"></span><br><span class="line">a.<span class="property">speed</span> ??= <span class="number">25</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">speed</span>);</span><br><span class="line"><span class="comment">// expected output: 25</span></span><br></pre></td></tr></table></figure><h3 id="4-逻辑假赋值-x-y"><a href="#4-逻辑假赋值-x-y" class="headerlink" title="4. 逻辑假赋值 x ||= y"></a>4. 逻辑假赋值 x ||= y</h3><p>仅当x是假的时候赋值</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123; <span class="attr">duration</span>: <span class="number">50</span>, <span class="attr">title</span>: <span class="string">&#x27;&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line">a.<span class="property">duration</span> ||= <span class="number">10</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">duration</span>);</span><br><span class="line"><span class="comment">// expected output: 50</span></span><br><span class="line"></span><br><span class="line">a.<span class="property">title</span> ||= <span class="string">&#x27;title is empty.&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">title</span>);</span><br><span class="line"><span class="comment">// expected output: &quot;title is empty&quot;</span></span><br></pre></td></tr></table></figure><h3 id="5-可选链操作符"><a href="#5-可选链操作符" class="headerlink" title="5.可选链操作符 ?."></a>5.可选链操作符 ?.</h3><p><strong>可选链</strong>操作符( <strong><code>?.</code></strong> )允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。<code>?.</code> 操作符的功能类似于 <code>.</code> 链式操作符，不同之处在于，在引用为空(<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Nullish">nullish</a> ) (<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null"><code>null</code></a> 或者 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a>) 的情况下不会引起错误，该表达式短路返回值是 <code>undefined</code>。与函数调用一起使用时，如果给定的函数不存在，则返回 <code>undefined</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> adventurer = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Alice&#x27;</span>,</span><br><span class="line">  <span class="attr">cat</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Dinah&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dogName = adventurer.<span class="property">dog</span>?.<span class="property">name</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dogName);</span><br><span class="line"><span class="comment">// expected output: undefined</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(adventurer.<span class="property">someNonExistentMethod</span>?.());</span><br><span class="line"><span class="comment">// expected output: undefined</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;实用方法&quot;&gt;&lt;a href=&quot;#实用方法&quot; class=&quot;headerlink&quot; title=&quot;实用方法&quot;&gt;&lt;/a&gt;实用方法&lt;/h1&gt;&lt;h2 id=&quot;运算符&quot;&gt;&lt;a href=&quot;#运算符&quot; class=&quot;headerlink&quot; title=&quot;运算符&quot;&gt;&lt;/a&gt;运算</summary>
-      
-    
-    
-    
-    <category term="技术文章" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/"/>
-    
-    
-    <category term="javascript" scheme="http://example.com/tags/javascript/"/>
     
   </entry>
   
