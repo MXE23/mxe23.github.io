@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-09-02T13:55:05.406Z</updated>
+  <updated>2024-09-03T09:39:32.194Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://example.com/2024/09/02/MikuMikuDance/%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D/"/>
     <id>http://example.com/2024/09/02/MikuMikuDance/%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D/</id>
     <published>2024-09-01T16:00:00.000Z</published>
-    <updated>2024-09-02T13:55:05.406Z</updated>
+    <updated>2024-09-03T09:39:32.194Z</updated>
     
-    <content type="html"><![CDATA[<p><video style="width:100%" controls autoplay src="http://47.99.73.39:9000/source/MMD/%E5%AE%B5%E5%AE%AB%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D.mp4"></video></p><p>尝试了一下blender的仿原神渲染预设</p><h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a>借物表</h3><p>动作：兰若_Ruo<br>镜头：秋燚QY<br>渲染：小二今天吃啥啊</p>]]></content>
+    <content type="html"><![CDATA[<p><video style="width:100%" controls src="http://47.99.73.39:9000/source/MMD/%E5%AE%B5%E5%AE%AB%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D.mp4"></video></p><p>尝试了一下blender的仿原神渲染预设</p><h3 id="借物表"><a href="#借物表" class="headerlink" title="借物表"></a>借物表</h3><p>动作：兰若_Ruo<br>镜头：秋燚QY<br>渲染：小二今天吃啥啊</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;video style=&quot;width:100%&quot; controls autoplay src=&quot;http://47.99.73.39:9000/source/MMD/%E5%AE%B5%E5%AE%AB%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8</summary>
+    <summary type="html">&lt;p&gt;&lt;video style=&quot;width:100%&quot; controls src=&quot;http://47.99.73.39:9000/source/MMD/%E5%AE%B5%E5%AE%AB%E5%BD%A9%E8%99%B9%E8%8A%82%E6%8B%8D.mp4&quot;&gt;&lt;/</summary>
       
     
     
