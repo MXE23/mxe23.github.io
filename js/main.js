@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
-   * 首頁top_img底下的箭頭
+   * 首頁top_img: 底下的箭頭
    */
   const scrollDownInIndex = () => {
     const $scrollDownEle = document.getElementById('scroll-down')
